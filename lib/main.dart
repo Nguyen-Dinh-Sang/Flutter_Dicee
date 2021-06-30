@@ -16,7 +16,15 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var letDiceNumber = 4;
+  var rightDiceNumber = 6;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -26,9 +34,11 @@ class DicePage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.fromLTRB(16, 16, 8, 16),
               child: InkWell(
-                child: Image.asset('images/dice1.png'),
+                child: Image.asset('images/dice$letDiceNumber.png'),
                 onTap: () {
-                  print('left tap');
+                  setState(() {
+                    letDiceNumber = 1;
+                  });
                 },
               ),
             ),
@@ -37,7 +47,7 @@ class DicePage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.fromLTRB(8, 16, 16, 16),
               child: InkWell(
-                child: Image.asset('images/dice3.png'),
+                child: Image.asset('images/dice$rightDiceNumber.png'),
                 onTap: () {
                   print('right tap');
                 },
