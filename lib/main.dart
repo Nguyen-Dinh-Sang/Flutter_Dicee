@@ -42,7 +42,7 @@ class _DicePageState extends State<DicePage> {
                   child: Image.asset('images/dice$letDiceNumber.png'),
                   onTap: () {
                     setState(() {
-                      ranDom();
+                      random();
                     });
                   },
                 ),
@@ -54,8 +54,9 @@ class _DicePageState extends State<DicePage> {
                 child: InkWell(
                   child: Image.asset('images/dice$rightDiceNumber.png'),
                   onTap: () {
-                    ranDom();
-                    setState(() {});
+                    setState(() {
+                      random();
+                    });
                   },
                 ),
               ),
@@ -74,7 +75,7 @@ class _DicePageState extends State<DicePage> {
     );
   }
 
-  void ranDom() {
+  void random() {
     letDiceNumber = Random().nextInt(6) + 1;
     rightDiceNumber = Random().nextInt(6) + 1;
   }
